@@ -5,19 +5,19 @@ document.addEventListener('DOMContentLoaded', function(){
     initConfetti();
 
     initRSVPForm();
+
+    initScrollAnimations();
 });
 
 /* ============================================
-    TRANSICION CINEMATOGRAFICA
-   ============================================ */
+   TRANSICION CINEMATOGRAFICA
+============================================ */
 
 function entrar(){
 
     const inicio = document.getElementById("inicio");
 
     const contenido = document.getElementById("contenido");
-
-    // EFECTO CINEMATOGRAFICO
 
     inicio.style.transition = "all 1.5s ease";
 
@@ -40,7 +40,7 @@ function entrar(){
 
 /* ============================================
    CUENTA REGRESIVA EXACTA
-   ============================================ */
+============================================ */
 
 const targetDate = new Date("May 16, 2026 16:00:00").getTime();
 
@@ -50,8 +50,6 @@ const countdown = setInterval(() => {
 
     const distance = targetDate - now;
 
-    // CALCULOS EXACTOS
-
     const days = Math.floor(distance / (1000 * 60 * 60 * 24));
 
     const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
@@ -59,8 +57,6 @@ const countdown = setInterval(() => {
     const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
 
     const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-    // MOSTRAR DATOS
 
     document.getElementById("days").innerHTML = days;
 
@@ -70,25 +66,25 @@ const countdown = setInterval(() => {
 
     document.getElementById("seconds").innerHTML = seconds;
 
-    // CUANDO LLEGUE EL DIA
-
     if(distance < 0){
 
         clearInterval(countdown);
 
         document.querySelector(".countdown").innerHTML =
-        "<h2>🎓 ¡El gran día ha llegado! 🎉</h2>";
+        "<h2>🎉 ¡El gran día ha llegado! 🎓</h2>";
     }
 
 },1000);
 
-/* PARTICULAS */
+/* ============================================
+   PARTICULAS
+============================================ */
 
 function initParticles(){
 
     const particlesContainer = document.getElementById('particles');
 
-    for(let i=0; i<30; i++){
+    for(let i=0; i<40; i++){
 
         const particle = document.createElement('div');
 
@@ -96,13 +92,24 @@ function initParticles(){
 
         particle.style.left = Math.random()*100 + '%';
 
-        particle.style.animationDelay = Math.random()*5 + 's';
+        particle.style.animationDelay = Math.random()*10 + 's';
+
+        particle.style.animationDuration =
+        (Math.random()*10 + 5) + 's';
+
+        const size = Math.random()*5 + 2;
+
+        particle.style.width = size + 'px';
+
+        particle.style.height = size + 'px';
 
         particlesContainer.appendChild(particle);
     }
 }
 
-/* CONFETI */
+/* ============================================
+   CONFETI
+============================================ */
 
 function initConfetti(){
 
@@ -118,15 +125,24 @@ function launchConfetti(){
 
     confetti({
 
-        particleCount:150,
+        particleCount:200,
 
-        spread:100,
+        spread:120,
 
-        origin:{ y:0.6 }
+        origin:{ y:0.6 },
+
+        colors:[
+            '#D4AF37',
+            '#FFD700',
+            '#ffffff',
+            '#1B3A5C'
+        ]
     });
 }
 
-/* FORMULARIO */
+/* ============================================
+   FORMULARIO
+============================================ */
 
 function initRSVPForm(){
 
@@ -138,7 +154,8 @@ function initRSVPForm(){
 
         e.preventDefault();
 
-        message.innerHTML = "🎉 Confirmación enviada correctamente";
+        message.innerHTML =
+        "🎉 Confirmación enviada correctamente";
 
         message.classList.remove('hidden');
 
@@ -147,3 +164,30 @@ function initRSVPForm(){
         form.reset();
     });
 }
+
+/* ============================================
+   ANIMACION AL HACER SCROLL
+============================================ */
+
+function initScrollAnimations(){
+
+    const elementos = document.querySelectorAll('.animar');
+
+    const mostrarElemento = () => {
+
+        elementos.forEach((el) => {
+
+            const top = el.getBoundingClientRect().top;
+
+            if(top < window.innerHeight - 100){
+
+                el.classList.add('visible');
+            }
+        });
+    }
+
+    window.addEventListener('scroll', mostrarElemento);
+
+    mostrarElemento();
+}
+
