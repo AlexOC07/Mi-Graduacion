@@ -675,3 +675,13 @@ blockquote{
         padding:40px 25px;
     }
 }
+.copyright{
+
+    margin-top:20px;
+
+    font-size:0.8rem;
+
+    color:rgba(255,255,255,0.5);
+
+    letter-spacing:1px;
+}
