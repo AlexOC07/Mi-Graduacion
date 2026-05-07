@@ -68,26 +68,21 @@ body{
 @keyframes subir{
 
     from{
-
         transform:translateY(100vh);
-
         opacity:0;
     }
 
     20%{
-
         opacity:1;
     }
 
     to{
-
         transform:translateY(-100px);
-
         opacity:0;
     }
 }
 
-/* PANTALLA INICIO */
+/* INICIO */
 
 #inicio{
 
@@ -100,7 +95,7 @@ body{
     linear-gradient(rgba(0,0,0,0.7),
     rgba(0,0,0,0.8)),
 
-    url("odonto\ 2.jpg");
+    url("odonto 2.jpg");
 
     background-size:cover;
     background-position:center;
@@ -157,12 +152,10 @@ body{
 @keyframes brillo{
 
     from{
-
         text-shadow:0 0 10px gold;
     }
 
     to{
-
         text-shadow:
         0 0 20px gold,
         0 0 40px gold,
@@ -209,7 +202,6 @@ body{
 }
 
 .oculto{
-
     display:none;
 }
 
@@ -225,8 +217,6 @@ body{
     align-items:center;
 
     padding:40px;
-
-    position:relative;
 
     background:
     linear-gradient(135deg,
@@ -250,37 +240,10 @@ body{
 
     background:rgba(0,0,0,0.5);
 
-    backdrop-filter:blur(10px);
-
     overflow:hidden;
 
     z-index:2;
-
-    animation:fadeCinema 2s;
 }
-
-@keyframes fadeCinema{
-
-    from{
-
-        opacity:0;
-
-        transform:
-        translateY(50px)
-        scale(0.9);
-    }
-
-    to{
-
-        opacity:1;
-
-        transform:
-        translateY(0)
-        scale(1);
-    }
-}
-
-/* BRILLO MOVIENDOSE */
 
 .shine-effect{
 
@@ -314,8 +277,6 @@ body{
     }
 }
 
-/* ESQUINAS */
-
 .corner-decoration{
 
     position:absolute;
@@ -327,48 +288,49 @@ body{
 }
 
 .top-left{
-
     top:0;
     left:0;
-
     border-right:none;
     border-bottom:none;
 }
 
 .top-right{
-
     top:0;
     right:0;
-
     border-left:none;
     border-bottom:none;
 }
 
 .bottom-left{
-
     bottom:0;
     left:0;
-
     border-right:none;
     border-top:none;
 }
 
 .bottom-right{
-
     bottom:0;
     right:0;
-
     border-left:none;
     border-top:none;
 }
 
-/* TEXTOS */
-
 .subtitle{
 
-    letter-spacing:3px;
+    letter-spacing:2px;
 
     margin-bottom:25px;
+
+    line-height:1.8;
+}
+
+.padres{
+
+    color:gold;
+
+    margin-bottom:30px;
+
+    line-height:1.7;
 }
 
 .graduate-name{
@@ -385,13 +347,10 @@ body{
 @keyframes nombreGlow{
 
     from{
-
-        text-shadow:
-        0 0 10px gold;
+        text-shadow:0 0 10px gold;
     }
 
     to{
-
         text-shadow:
         0 0 20px gold,
         0 0 40px gold,
@@ -469,8 +428,6 @@ body{
 
     background:rgba(255,255,255,0.05);
 
-    backdrop-filter:blur(5px);
-
     transition:0.4s;
 }
 
@@ -492,29 +449,7 @@ body{
     color:gold;
 }
 
-.scroll-indicator{
-
-    margin-top:40px;
-
-    animation:subeBaja 2s infinite;
-}
-
-@keyframes subeBaja{
-
-    0%{
-        transform:translateY(0);
-    }
-
-    50%{
-        transform:translateY(10px);
-    }
-
-    100%{
-        transform:translateY(0);
-    }
-}
-
-/* DETAILS */
+/* DETALLES */
 
 .details{
 
@@ -603,7 +538,7 @@ blockquote{
     color:gold;
 }
 
-/* RSVP */
+/* WHATSAPP */
 
 .rsvp{
 
@@ -623,66 +558,58 @@ blockquote{
     border:2px solid gold;
 
     background:rgba(255,255,255,0.05);
+
+    text-align:center;
 }
 
-.form-group{
+.rsvp-text{
 
-    margin-bottom:25px;
+    margin-top:15px;
+
+    margin-bottom:40px;
 }
 
-.form-group input{
+.whatsapp-buttons{
 
-    width:100%;
+    display:flex;
 
-    padding:15px;
+    flex-direction:column;
 
-    border:none;
-
-    border-bottom:1px solid gold;
-
-    background:transparent;
-
-    color:white;
-
-    outline:none;
+    gap:20px;
 }
 
-.submit-btn{
+.whatsapp-btn{
 
-    width:100%;
+    text-decoration:none;
 
-    padding:15px;
+    padding:18px;
 
-    border:none;
-
-    background:gold;
+    border-radius:10px;
 
     font-weight:bold;
 
-    cursor:pointer;
-
-    border-radius:8px;
+    font-size:18px;
 
     transition:0.4s;
 }
 
-.submit-btn:hover{
+.asistir{
 
-    transform:scale(1.03);
+    background:#25D366;
+
+    color:white;
 }
 
-.message{
+.no-asistir{
 
-    margin-top:20px;
+    background:#b22222;
 
-    text-align:center;
-
-    color:gold;
+    color:white;
 }
 
-.hidden{
+.whatsapp-btn:hover{
 
-    display:none;
+    transform:scale(1.05);
 }
 
 /* FOOTER */
@@ -701,14 +628,14 @@ blockquote{
     color:gold;
 }
 
-/* BOTONES */
+/* BOTON */
 
-.music-btn,
 .confetti-btn{
 
     position:fixed;
 
     bottom:20px;
+    right:20px;
 
     width:55px;
     height:55px;
@@ -728,56 +655,23 @@ blockquote{
     z-index:1000;
 }
 
-.music-btn{
-
-    right:20px;
-}
-
-.confetti-btn{
-
-    right:90px;
-}
-
-/* ANIMACION SCROLL */
-
-.animar{
-
-    opacity:0;
-
-    transform:translateY(60px);
-
-    transition:1s;
-}
-
-.animar.visible{
-
-    opacity:1;
-
-    transform:translateY(0);
-}
-
 /* RESPONSIVE */
 
 @media(max-width:768px){
 
     #inicio h1{
-
         font-size:3rem;
     }
 
     .graduate-name{
-
         font-size:3.5rem;
     }
 
     blockquote{
-
         font-size:2rem;
     }
 
     .hero-content{
-
         padding:40px 25px;
     }
 }
-

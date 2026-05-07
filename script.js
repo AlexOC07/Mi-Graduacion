@@ -3,15 +3,9 @@ document.addEventListener('DOMContentLoaded', function(){
     initParticles();
 
     initConfetti();
-
-    initRSVPForm();
-
-    initScrollAnimations();
 });
 
-/* ============================================
-   TRANSICION CINEMATOGRAFICA
-============================================ */
+/* TRANSICION */
 
 function entrar(){
 
@@ -31,16 +25,12 @@ function entrar(){
 
         contenido.classList.remove("oculto");
 
-        contenido.style.animation = "fadeCinema 2s ease";
-
         launchConfetti();
 
     },1500);
 }
 
-/* ============================================
-   CUENTA REGRESIVA EXACTA
-============================================ */
+/* CUENTA REGRESIVA */
 
 const targetDate = new Date("May 16, 2026 16:00:00").getTime();
 
@@ -76,9 +66,7 @@ const countdown = setInterval(() => {
 
 },1000);
 
-/* ============================================
-   PARTICULAS
-============================================ */
+/* PARTICULAS */
 
 function initParticles(){
 
@@ -107,9 +95,7 @@ function initParticles(){
     }
 }
 
-/* ============================================
-   CONFETI
-============================================ */
+/* CONFETI */
 
 function initConfetti(){
 
@@ -139,55 +125,3 @@ function launchConfetti(){
         ]
     });
 }
-
-/* ============================================
-   FORMULARIO
-============================================ */
-
-function initRSVPForm(){
-
-    const form = document.getElementById('rsvp-form');
-
-    const message = document.getElementById('rsvp-message');
-
-    form.addEventListener('submit', function(e){
-
-        e.preventDefault();
-
-        message.innerHTML =
-        "🎉 Confirmación enviada correctamente";
-
-        message.classList.remove('hidden');
-
-        launchConfetti();
-
-        form.reset();
-    });
-}
-
-/* ============================================
-   ANIMACION AL HACER SCROLL
-============================================ */
-
-function initScrollAnimations(){
-
-    const elementos = document.querySelectorAll('.animar');
-
-    const mostrarElemento = () => {
-
-        elementos.forEach((el) => {
-
-            const top = el.getBoundingClientRect().top;
-
-            if(top < window.innerHeight - 100){
-
-                el.classList.add('visible');
-            }
-        });
-    }
-
-    window.addEventListener('scroll', mostrarElemento);
-
-    mostrarElemento();
-}
-
