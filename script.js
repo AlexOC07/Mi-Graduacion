@@ -13,6 +13,10 @@ function entrar(){
 
     const contenido = document.getElementById("contenido");
 
+    const musica = document.getElementById("musica");
+
+    musica.play();
+
     inicio.style.transition = "all 1.5s ease";
 
     inicio.style.opacity = "0";
@@ -24,6 +28,8 @@ function entrar(){
         inicio.style.display = "none";
 
         contenido.classList.remove("oculto");
+
+        contenido.style.animation = "fadeCinema 2s ease";
 
         launchConfetti();
 
